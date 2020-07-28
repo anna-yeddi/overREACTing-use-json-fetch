@@ -1,4 +1,5 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import FetchedData from './components/FetchedData'
 import FetchedError from './components/FetchedError'
