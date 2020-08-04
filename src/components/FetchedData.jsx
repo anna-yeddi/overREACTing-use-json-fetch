@@ -4,14 +4,14 @@ import Spinner from 'react-bootstrap/Spinner'
 import useJsonFetch from '../hooks/useJsonFetch'
 
 function FetchedData(props) {
-  const url = process.env.REACT_APP_DATA_URL + 'data',
+  const url = process.env.REACT_APP_DATA_URL + props.url,
     opts = []
 
   const [data, loading, error] = useJsonFetch(url, opts)
 
   return (
     <div>
-      <h2>Data</h2>
+      <h2>...with {props.url}</h2>
       {loading && (
         <div>
           <Spinner animation="border" role="status">
@@ -21,7 +21,7 @@ function FetchedData(props) {
         </div>
       )}
       {error && <p>Oops, an error sneaked in here! Try to refresh the page.</p>}
-      <div>{data.status}</div>
+      {data && <div>{data.status}</div>}
     </div>
   )
 }
